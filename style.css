@@ -42,7 +42,7 @@ body {
 }
 
 /* =========================
-   STARS
+   FIXED STARRY SKY
 ========================= */
 
 .stars,
@@ -52,70 +52,156 @@ body {
     pointer-events: none;
 }
 
-.stars::before,
-.stars::after,
-.stars-two::before,
+/* MANY FIXED STARS */
+.stars::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.95) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(210,225,255,.8) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,.7) 0 .8px, transparent 1.3px),
+        radial-gradient(circle, rgba(180,205,255,.65) 0 .8px, transparent 1.3px);
+
+    background-size:
+        47px 53px,
+        71px 67px,
+        31px 43px,
+        89px 79px;
+
+    background-position:
+        5px 9px,
+        22px 31px,
+        11px 18px,
+        43px 7px;
+
+    animation: starTwinkle 3s ease-in-out infinite alternate;
+}
+
+/* SECOND LAYER OF TINY STARS */
+.stars::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 0 .8px, transparent 1.3px),
+        radial-gradient(circle, rgba(170,200,255,.7) 0 .7px, transparent 1.2px),
+        radial-gradient(circle, rgba(255,255,255,.65) 0 .7px, transparent 1.2px);
+
+    background-size:
+        59px 61px,
+        83px 73px,
+        37px 47px;
+
+    background-position:
+        17px 4px,
+        39px 23px,
+        8px 29px;
+
+    animation: starTwinkleSlow 4.5s ease-in-out infinite alternate;
+}
+
+/* EXTRA DENSE STAR LAYER */
+.stars-two::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.8) 0 .7px, transparent 1.2px),
+        radial-gradient(circle, rgba(200,220,255,.6) 0 .7px, transparent 1.2px);
+
+    background-size:
+        43px 41px,
+        67px 59px;
+
+    background-position:
+        13px 21px,
+        31px 11px;
+
+    animation: starTwinkleSoft 5.5s ease-in-out infinite alternate;
+}
+
 .stars-two::after {
     content: "";
     position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: white;
-    box-shadow:
-        8vw 12vh white,
-        17vw 28vh rgba(255,255,255,.8),
-        28vw 9vh white,
-        39vw 21vh rgba(255,255,255,.7),
-        51vw 12vh white,
-        63vw 30vh rgba(255,255,255,.8),
-        74vw 15vh white,
-        86vw 26vh rgba(255,255,255,.7),
-        94vw 8vh white,
-        11vw 53vh rgba(255,255,255,.7),
-        24vw 69vh white,
-        36vw 48vh rgba(255,255,255,.8),
-        48vw 77vh white,
-        61vw 58vh rgba(255,255,255,.7),
-        78vw 72vh white,
-        91vw 54vh rgba(255,255,255,.8),
-        5vw 84vh white,
-        31vw 91vh rgba(255,255,255,.7),
-        57vw 91vh white,
-        83vw 88vh rgba(255,255,255,.8);
-    animation: twinkle 3.5s ease-in-out infinite alternate;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.55) 0 .6px, transparent 1px),
+        radial-gradient(circle, rgba(190,215,255,.5) 0 .6px, transparent 1px);
+
+    background-size:
+        27px 31px,
+        53px 47px;
+
+    background-position:
+        4px 15px,
+        26px 37px;
+
+    animation: starTwinkleVerySoft 6s ease-in-out infinite alternate;
 }
 
-.stars::after {
-    animation-delay: 1.5s;
-    opacity: .6;
-}
+/* =========================
+   TWINKLING
+   NO MOVEMENT
+========================= */
 
-.stars-two::before {
-    transform: scale(.6);
-    opacity: .55;
-    animation-delay: 2s;
-}
-
-.stars-two::after {
-    transform: scale(.8);
-    opacity: .35;
-    animation-delay: .8s;
-}
-
-@keyframes twinkle {
+@keyframes starTwinkle {
     0% {
-        opacity: .25;
-        transform: scale(.75);
+        opacity: .45;
     }
 
-    50% {
+    45% {
         opacity: .9;
     }
 
     100% {
+        opacity: .55;
+    }
+}
+
+@keyframes starTwinkleSlow {
+    0% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: .75;
+    }
+
+    100% {
+        opacity: .4;
+    }
+}
+
+@keyframes starTwinkleSoft {
+    0% {
         opacity: .35;
-        transform: scale(1);
+    }
+
+    50% {
+        opacity: .7;
+    }
+
+    100% {
+        opacity: .45;
+    }
+}
+
+@keyframes starTwinkleVerySoft {
+    0% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .55;
+    }
+
+    100% {
+        opacity: .3;
     }
 }
 
