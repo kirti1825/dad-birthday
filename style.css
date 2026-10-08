@@ -153,24 +153,40 @@ body {
     border-radius: 50%;
     background: #07101f;
 }
-
 /* =========================
-   WELCOME CARD
+   CENTER WELCOME BOX
 ========================= */
 
 .welcome-card {
     position: relative;
     z-index: 5;
 
-    width: min(90%, 520px);
+    width: min(88%, 430px);
 
-    padding: 45px 25px;
+    padding: 30px 24px 28px;
 
     text-align: center;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 45, 88, 0.72),
+            rgba(8, 19, 42, 0.78)
+        );
+
+    border: 1px solid rgba(145, 178, 235, 0.22);
+    border-radius: 22px;
+
+    box-shadow:
+        0 0 25px rgba(70, 110, 190, 0.16),
+        0 0 70px rgba(35, 70, 140, 0.12),
+        inset 0 0 25px rgba(100, 145, 220, 0.06);
+
+    backdrop-filter: blur(12px);
 
     animation: cardAppear 1.5s ease forwards;
 }
@@ -193,7 +209,7 @@ body {
 
 .cake {
     font-size: clamp(4rem, 17vw, 6.5rem);
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 
     animation: cakeFloat 3s ease-in-out infinite;
 }
@@ -216,25 +232,25 @@ body {
 .welcome-title {
     font-family: Georgia, "Times New Roman", serif;
 
-    font-size: clamp(2.5rem, 11vw, 4.5rem);
+    font-size: clamp(2.3rem, 10vw, 4rem);
 
-    letter-spacing: .18em;
+    letter-spacing: .16em;
     font-weight: 700;
 
-    margin-left: .18em;
+    margin-left: .16em;
 
     text-shadow:
         0 0 10px rgba(255,255,255,.3),
-        0 0 25px rgba(170,190,255,.2);
+        0 0 25px rgba(170,190,255,.25);
 }
 
 .birthday-name {
-    margin-top: 8px;
+    margin-top: 5px;
 
-    font-size: clamp(2rem, 9vw, 3.5rem);
+    font-size: clamp(1.8rem, 8vw, 3.2rem);
 
-    letter-spacing: .14em;
-    margin-left: .14em;
+    letter-spacing: .13em;
+    margin-left: .13em;
 
     color: #f5dca5;
 
@@ -248,21 +264,29 @@ body {
 ========================= */
 
 .warning {
-    max-width: 450px;
+    max-width: 360px;
 
-    margin-top: 25px;
+    margin-top: 19px;
 
     font-family: Arial, sans-serif;
 
-    font-size: clamp(1rem, 4.2vw, 1.2rem);
+    font-size: clamp(.92rem, 3.8vw, 1.05rem);
 
-    line-height: 1.65;
+    line-height: 1.55;
 
-    color: rgba(255,255,255,.78);
+    color: rgba(225, 234, 250, .82);
 }
 
 .warning + .warning {
-    margin-top: 2px;
+    margin-top: 7px;
+
+    color: #9fc5ff;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 8px rgba(105, 160, 255, .35),
+        0 0 18px rgba(105, 160, 255, .18);
 }
 
 /* =========================
@@ -270,11 +294,11 @@ body {
 ========================= */
 
 #enterButton {
-    margin-top: 32px;
+    margin-top: 25px;
 
-    padding: 15px 27px;
+    padding: 14px 25px;
 
-    border: 1px solid rgba(255,255,255,.35);
+    border: 1px solid rgba(190, 215, 255, .42);
     border-radius: 999px;
 
     background: rgba(255,255,255,.07);
@@ -282,7 +306,7 @@ body {
     color: white;
 
     font-family: Arial, sans-serif;
-    font-size: clamp(.9rem, 3.8vw, 1.05rem);
+    font-size: clamp(.88rem, 3.7vw, 1rem);
 
     font-weight: 600;
     letter-spacing: .08em;
@@ -292,18 +316,18 @@ body {
     backdrop-filter: blur(8px);
 
     box-shadow:
-        0 0 10px rgba(255,255,255,.08),
-        0 0 25px rgba(160,180,255,.08);
+        0 0 12px rgba(125, 170, 255, .16),
+        0 0 30px rgba(100, 150, 255, .12);
 
-    animation: buttonTwinkle 2.8s ease-in-out infinite;
+    animation: buttonGlow 2.4s ease-in-out infinite;
 }
 
 #enterButton:hover {
-    background: rgba(255,255,255,.13);
+    background: rgba(100, 145, 220, .13);
 
     box-shadow:
-        0 0 15px rgba(255,255,255,.18),
-        0 0 35px rgba(160,180,255,.16);
+        0 0 18px rgba(145, 190, 255, .3),
+        0 0 42px rgba(100, 155, 255, .2);
 
     transform: translateY(-2px);
 }
@@ -312,22 +336,28 @@ body {
     transform: scale(.97);
 }
 
-@keyframes buttonTwinkle {
+@keyframes buttonGlow {
     0%,
     100% {
-        opacity: .72;
         box-shadow:
-            0 0 10px rgba(255,255,255,.08),
-            0 0 25px rgba(160,180,255,.08);
+            0 0 10px rgba(125, 170, 255, .12),
+            0 0 25px rgba(100, 150, 255, .08);
     }
 
     50% {
-        opacity: 1;
         box-shadow:
-            0 0 16px rgba(255,255,255,.2),
-            0 0 38px rgba(160,180,255,.15);
+            0 0 18px rgba(145, 190, 255, .28),
+            0 0 42px rgba(100, 155, 255, .18);
     }
 }
+
+
+
+
+
+    
+    
+            
 
 /* =========================
    HIDDEN NEXT SECTION
