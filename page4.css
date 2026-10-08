@@ -1,0 +1,502 @@
+/* ================================
+   RESET
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #12091f;
+}
+
+
+/* ================================
+   MAIN SCENE
+================================ */
+
+.birthday-scene {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(122, 72, 170, .32),
+            transparent 48%
+        ),
+        linear-gradient(
+            180deg,
+            #10091d,
+            #241037 52%,
+            #10091e
+        );
+}
+
+
+/* ================================
+   PURPLE ATMOSPHERE
+================================ */
+
+.purple-glow {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 65%,
+            rgba(166, 91, 203, .20),
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 20% 35%,
+            rgba(214, 126, 213, .10),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 82% 25%,
+            rgba(120, 105, 220, .12),
+            transparent 35%
+        );
+
+    pointer-events: none;
+}
+
+
+/* soft floating light patches */
+
+.soft-light {
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    filter: blur(55px);
+
+    opacity: .18;
+
+    pointer-events: none;
+
+    animation: softFloat 7s ease-in-out infinite alternate;
+}
+
+.light-one {
+    left: -50px;
+    top: 20%;
+
+    background: #c47bdc;
+}
+
+.light-two {
+    right: -60px;
+    top: 42%;
+
+    background: #8274d8;
+
+    animation-delay: 2s;
+}
+
+.light-three {
+    left: 35%;
+    bottom: -80px;
+
+    background: #df8ed5;
+
+    animation-delay: 4s;
+}
+
+@keyframes softFloat {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-25px);
+    }
+}
+
+
+/* ================================
+   CONFETTI
+================================ */
+
+.confetti-layer {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+.confetti {
+    position: absolute;
+
+    top: -20px;
+
+    width: 5px;
+    height: 9px;
+
+    border-radius: 2px;
+
+    opacity: .65;
+
+    animation:
+        confettiFall
+        var(--fall-time)
+        linear
+        var(--delay)
+        infinite;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translate3d(0, -20px, 0)
+            rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .7;
+    }
+
+    50% {
+        transform:
+            translate3d(var(--drift), 50vh, 0)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translate3d(calc(var(--drift) * -1), 110vh, 0)
+            rotate(360deg);
+        opacity: .2;
+    }
+}
+
+
+/* ================================
+   FAMILY STAGE
+================================ */
+
+.family-stage {
+    position: absolute;
+
+    left: 50%;
+    bottom: 7%;
+
+    transform: translateX(-50%);
+
+    width: min(96vw, 620px);
+    height: 65vh;
+
+    z-index: 10;
+}
+
+
+/* ================================
+   CAKE TABLE
+================================ */
+
+.cake-table {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 38%;
+    height: 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #5b3150,
+            #321b32
+        );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.35);
+
+    z-index: 15;
+}
+
+
+/* table leg */
+
+.cake-table::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 24px;
+
+    transform: translateX(-50%);
+
+    width: 22px;
+    height: 100px;
+
+    background: #3b2136;
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* ================================
+   CAKE
+================================ */
+
+.cake {
+    position: absolute;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    width: 90px;
+    height: 80px;
+
+    z-index: 20;
+}
+
+.cake-body {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 90px;
+    height: 50px;
+
+    border-radius: 12px 12px 15px 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f2b4d3,
+            #c76d9f
+        );
+
+    box-shadow:
+        0 6px 15px rgba(0,0,0,.25);
+}
+
+.cake-top {
+    position: absolute;
+
+    top: 18px;
+    left: 0;
+
+    width: 90px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #ffe1ef;
+
+    z-index: 2;
+}
+
+.cake-cream {
+    position: absolute;
+
+    top: 10px;
+    left: 0;
+
+    width: 90px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #fff1f7;
+}
+
+.cake-candle {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
+    width: 7px;
+    height: 25px;
+
+    border-radius: 3px;
+
+    background: #f5d58c;
+
+    z-index: 5;
+}
+
+.flame {
+    position: absolute;
+
+    top: -13px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 9px;
+    height: 13px;
+
+    border-radius: 60% 40% 60% 40%;
+
+    background: #ffd875;
+
+    box-shadow:
+        0 0 10px rgba(255,205,100,.8);
+
+    animation: flame 1s ease-in-out infinite alternate;
+}
+
+@keyframes flame {
+
+    from {
+        transform:
+            translateX(-50%)
+            scale(.9);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.12);
+    }
+}
+
+
+/* ================================
+   FAMILY
+================================ */
+
+.family {
+    position: absolute;
+
+    left: 50%;
+    bottom: 35px;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: clamp(2px, 1vw, 12px);
+}
+
+
+/* individual character */
+
+.family-member {
+    position: relative;
+
+    height: 78%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    animation:
+        familyAppear
+        1s
+        ease
+        both;
+}
+
+.family-member img {
+    display: block;
+
+    height: 100%;
+    width: auto;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 7px 10px rgba(0,0,0,.38)
+        );
+}
+
+
+/* positions */
+
+.papa {
+    animation-delay: .2s;
+}
+
+.mummy {
+    animation-delay: .45s;
+}
+
+.didi {
+    animation-delay: .7s;
+}
+
+.you {
+    animation-delay: .95s;
+}
+
+
+@keyframes familyAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ================================
+   BIRTHDAY MESSAGE
+================================ */
+
+.birthday-message {
+    position: absolute;
+
+    left: 50%;
+    top: 43%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 50;
+
+   
