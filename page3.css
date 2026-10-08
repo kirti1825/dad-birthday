@@ -1,0 +1,918 @@
+/* ================================
+   BASIC RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #02030a;
+    font-family: Georgia, serif;
+}
+
+
+/* ================================
+   MAIN SCENE
+================================ */
+
+.scene {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            rgba(35, 46, 85, .55),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(15, 26, 65, .65),
+            transparent 55%
+        ),
+        #02030a;
+
+    animation: sceneAppear 3s ease forwards;
+}
+
+
+/* ================================
+   SKY
+================================ */
+
+.sky {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #010208 0%,
+            #05091b 45%,
+            #10172e 75%,
+            #080a15 100%
+        );
+
+    opacity: 0;
+    animation: skyAppear 3.5s ease forwards;
+}
+
+
+/* ================================
+   STARS
+================================ */
+
+.stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+
+/* BIG STARS */
+
+.stars-one {
+    background-image:
+
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(255,255,255,.95) 0 1.4px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 19% 30%,
+            rgba(220,230,255,.85) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 31% 12%,
+            rgba(255,255,255,.9) 0 1.3px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 44% 28%,
+            rgba(210,225,255,.8) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 57% 10%,
+            rgba(255,255,255,.95) 0 1.3px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 71% 25%,
+            rgba(220,230,255,.9) 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 84% 13%,
+            rgba(255,255,255,.95) 0 1.3px,
+            transparent 2.5px
+        ),
+
+        radial-gradient(
+            circle at 94% 35%,
+            rgba(215,225,255,.8) 0 1px,
+            transparent 2px
+        );
+
+    animation: starGlow 4s ease-in-out infinite alternate;
+}
+
+
+/* SMALL STARS */
+
+.stars-two {
+    background-image:
+
+        radial-gradient(circle at 5% 50%, rgba(255,255,255,.65) 0 .8px, transparent 1.7px),
+        radial-gradient(circle at 15% 70%, rgba(190,215,255,.6) 0 .8px, transparent 1.7px),
+        radial-gradient(circle at 25% 55%, rgba(255,255,255,.6) 0 .8px, transparent 1.7px),
+        radial-gradient(circle at 38% 75%, rgba(200,220,255,.65) 0 .8px, transparent 1.7px),
+        radial-gradient(circle at 50% 60%, rgba(255,255,255,.55) 0 .8px, transparent 1.7px),
+        radial-gradient(circle at 63% 78%, rgba(205,220,255,.6) 0 .8px, transparent 1.7px),
+        radial-gradient(circle at 76% 58%, rgba(255,255,255,.6) 0 .8px, transparent 1.7px),
+        radial-gradient(circle at 88% 72%, rgba(200,220,255,.65) 0 .8px, transparent 1.7px);
+
+    animation: starGlowSoft 5s ease-in-out infinite alternate;
+}
+
+
+/* TINY STARS */
+
+.stars-three {
+    background-image:
+
+        radial-gradient(circle at 12% 90%, rgba(255,255,255,.4) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 28% 84%, rgba(200,220,255,.4) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 45% 92%, rgba(255,255,255,.4) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 61% 87%, rgba(200,220,255,.4) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 79% 91%, rgba(255,255,255,.4) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 92% 82%, rgba(200,220,255,.4) 0 .6px, transparent 1.3px);
+
+    animation: starGlowTiny 6s ease-in-out infinite alternate;
+}
+
+
+@keyframes starGlow {
+
+    0% {
+        opacity: .35;
+        filter: drop-shadow(0 0 1px rgba(255,255,255,.2));
+    }
+
+    50% {
+        opacity: .9;
+        filter: drop-shadow(
+            0 0 5px rgba(210,225,255,.7)
+        );
+    }
+
+    100% {
+        opacity: .45;
+    }
+}
+
+
+@keyframes starGlowSoft {
+
+    0% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .7;
+        filter: drop-shadow(
+            0 0 4px rgba(210,225,255,.55)
+        );
+    }
+
+    100% {
+        opacity: .3;
+    }
+}
+
+
+@keyframes starGlowTiny {
+
+    0% {
+        opacity: .15;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: .2;
+    }
+}
+
+
+/* ================================
+   AMBIENT GLOW
+================================ */
+
+.ambient-glow {
+    position: absolute;
+
+    width: 70vw;
+    height: 70vw;
+
+    max-width: 700px;
+    max-height: 700px;
+
+    left: 50%;
+    top: 55%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(105,125,190,.16),
+            transparent 68%
+        );
+
+    filter: blur(10px);
+
+    animation: ambientPulse 5s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(.95);
+        opacity: .55;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.08);
+        opacity: .9;
+    }
+}
+
+
+/* ================================
+   ANCIENT GATE
+================================ */
+
+.gate-area {
+    position: absolute;
+
+    left: 50%;
+    bottom: 7%;
+
+    width: min(78vw, 390px);
+    height: min(75vh, 520px);
+
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    animation: gateAppear 2.8s ease forwards;
+    animation-delay: 2.2s;
+}
+
+
+/* GOLDEN AURA */
+
+.gate-glow {
+    position: absolute;
+
+    inset: 4% 4% 0;
+
+    border-radius: 50% 50% 12% 12%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(230,180,85,.2),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    animation: gateAura 3.5s ease-in-out infinite;
+}
+
+
+@keyframes gateAura {
+
+    0%,
+    100% {
+        opacity: .45;
+        transform: scale(.96);
+    }
+
+    50% {
+        opacity: .85;
+        transform: scale(1.04);
+    }
+}
+
+
+/* GATE FRAME */
+
+.gate {
+    position: absolute;
+    inset: 0;
+}
+
+
+/* TOP ARCH */
+
+.gate-top {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    top: 0;
+
+    height: 27%;
+
+    border-radius:
+        50% 50% 0 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #332918,
+            #7c6336 30%,
+            #3b2e1b 55%,
+            #8e7140 75%,
+            #2b2114
+        );
+
+    border:
+        4px solid rgba(198,157,86,.75);
+
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,.8),
+        0 0 20px rgba(210,165,80,.25);
+}
+
+
+/* SYMBOL */
+
+.gate-symbol {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #f5d994;
+
+    font-size: 38px;
+
+    text-shadow:
+        0 0 8px rgba(255,220,130,.7),
+        0 0 25px rgba(255,200,80,.45);
+
+    animation: symbolGlow 2.8s ease-in-out infinite;
+}
+
+
+@keyframes symbolGlow {
+
+    0%,
+    100% {
+        opacity: .65;
+        transform: translate(-50%, -50%) scale(.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+}
+
+
+/* GATE FRAME */
+
+.gate-frame {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+    top: 20%;
+    bottom: 0;
+
+    overflow: hidden;
+
+    border:
+        7px solid #4b3a20;
+
+    border-top: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #17140e,
+            #080807
+        );
+
+    box-shadow:
+        inset 0 0 30px rgba(0,0,0,.95),
+        0 0 20px rgba(180,140,70,.2);
+}
+
+
+/* DOORS */
+
+.gate-door {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 50%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #241c10 0,
+            #3d301c 8px,
+            #21190e 17px
+        );
+
+    border:
+        3px solid #7b6135;
+
+    box-shadow:
+        inset 0 0 18px rgba(0,0,0,.75);
+
+    z-index: 5;
+
+    transition:
+        transform 2.2s cubic-bezier(.7,0,.2,1);
+}
+
+
+.left-door {
+    left: 0;
+    transform-origin: left center;
+}
+
+
+.right-door {
+    right: 0;
+    transform-origin: right center;
+}
+
+
+/* INNER LIGHT */
+
+.inside-light {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #fff3c0 0%,
+            #f5d98a 18%,
+            rgba(213,158,64,.7) 38%,
+            rgba(80,54,23,.35) 58%,
+            transparent 78%
+        );
+
+    opacity: 0;
+
+    transform: scale(.7);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+
+    z-index: 2;
+}
+
+
+/* GROUND */
+
+.gate-ground-glow {
+    position: absolute;
+
+    bottom: -5%;
+    left: 50%;
+
+    width: 130%;
+    height: 18%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(230,185,95,.32),
+            transparent 70%
+        );
+
+    filter: blur(10px);
+
+    opacity: .5;
+}
+
+
+/* ================================
+   FATHER WALKER
+================================ */
+
+.father-walker {
+    position: absolute;
+
+    left: -180px;
+    bottom: 5%;
+
+    width: min(210px, 42vw);
+
+    z-index: 20;
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(255,215,140,.2)
+        );
+
+    animation:
+        fatherEnter 5.5s cubic-bezier(.45,0,.25,1) forwards;
+
+    animation-delay: 4.2s;
+}
+
+
+.father-walker img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    filter:
+        drop-shadow(
+            0 0 7px rgba(255,215,150,.25)
+        );
+
+    animation:
+        cuteWalk 0.85s ease-in-out infinite;
+}
+
+
+@keyframes fatherEnter {
+
+    0% {
+        left: -180px;
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    35% {
+        left: 18%;
+    }
+
+    68% {
+        left: 38%;
+    }
+
+    100% {
+        left: calc(50% - 95px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes cuteWalk {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(-.7deg);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            rotate(.7deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(-.7deg);
+    }
+}
+
+
+/* ================================
+   KNOCK EFFECT
+================================ */
+
+.knock-effect {
+    position: absolute;
+
+    left: calc(50% + 35px);
+    bottom: 30%;
+
+    z-index: 30;
+
+    display: flex;
+    gap: 10px;
+
+    color: #ffe5a5;
+
+    opacity: 0;
+
+    font-size: 22px;
+
+    text-shadow:
+        0 0 10px rgba(255,215,130,.8);
+
+    pointer-events: none;
+}
+
+
+.knock-effect span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.knock-effect span:nth-child(2) {
+    animation-delay: .12s;
+}
+
+.knock-effect span:nth-child(3) {
+    animation-delay: .24s;
+}
+
+
+@keyframes knockSpark {
+
+    0% {
+        opacity: 0;
+        transform: scale(.5) translateY(8px);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5) translateY(-18px);
+    }
+}
+
+
+/* ================================
+   TEXT
+================================ */
+
+.scene-text {
+    position: absolute;
+
+    left: 50%;
+    top: 12%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 10;
+
+    opacity: 0;
+
+    animation: textAppear 2s ease forwards;
+    animation-delay: 5.5s;
+}
+
+
+.little-line {
+    margin-bottom: 12px;
+
+    color: #d8c9a2;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(14px, 3.5vw, 19px);
+
+    font-style: italic;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(220,200,150,.25);
+}
+
+
+.scene-text h1 {
+    color: #f3dc9b;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(18px, 5vw, 30px);
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px rgba(255,215,130,.35),
+        0 0 25px rgba(255,200,100,.15);
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+}
+
+
+/* ================================
+   FINAL LIGHT
+================================ */
+
+.final-light {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff9df 0%,
+            #f7df9c 15%,
+            rgba(238,194,101,.7) 30%,
+            rgba(80,55,20,.15) 55%,
+            transparent 75%
+        );
+
+    opacity: 0;
+
+    z-index: 100;
+
+    pointer-events: none;
+}
+
+
+/* ================================
+   PARTICLES
+================================ */
+
+.particles {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 15;
+
+    background-image:
+
+        radial-gradient(circle at 20% 65%, rgba(255,220,150,.7) 0 1px, transparent 2px),
+        radial-gradient(circle at 30% 45%, rgba(255,235,180,.5) 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 55%, rgba(255,220,150,.6) 0 1px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(255,235,180,.5) 0 1px, transparent 2px),
+        radial-gradient(circle at 50% 80%, rgba(255,220,150,.5) 0 1px, transparent 2px);
+
+    opacity: .45;
+
+    animation: particleFloat 5s ease-in-out infinite alternate;
+}
+
+
+@keyframes particleFloat {
+
+    from {
+        transform: translateY(8px);
+        opacity: .25;
+    }
+
+    to {
+        transform: translateY(-12px);
+        opacity: .7;
+    }
+}
+
+
+/* ================================
+   SCENE APPEAR
+================================ */
+
+@keyframes sceneAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes skyAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes gateAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            translateY(35px)
+            scale(.92);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .gate-area {
+        width: 82vw;
+        height: 58vh;
+        bottom: 8%;
+    }
+
+    .father-walker {
+        width: 165px;
+        bottom: 7%;
+    }
+
+    .scene-text {
+        top: 9%;
+    }
+
+    .scene-text h1 {
+        font-size: 19px;
+        letter-spacing: 2px;
+    }
+
+    .little-line {
+        font-size: 13px;
+    }
+
+    .gate-symbol {
+        font-size: 30px;
+    }
+}
