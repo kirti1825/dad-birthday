@@ -12,16 +12,6 @@ enterButton.addEventListener("click", () => {
 
     setTimeout(() => {
 
-        openingScreen.style.display = "none";
+    window.location.href = "page2.html";
 
-        birthdayAnimation.classList.remove("hidden");
-
-        /*
-         * NEXT PART WILL START HERE.
-         *
-         * We will add your father's next interface
-         * without changing the opening screen above.
-         */
-
-    }, 1800);
-});
+}, 1800);
