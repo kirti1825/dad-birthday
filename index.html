@@ -3,51 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Pitashree 🎂</title>
+    <title>Pitashree's Birthday</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Stars -->
-    <div class="stars"></div>
+    <div class="opening-screen">
 
-    <!-- Moon -->
-    <div class="moon">
-        <div class="moon-shadow"></div>
+        <div class="stars"></div>
+        <div class="stars stars-two"></div>
+
+        <div class="moon"></div>
+
+        <div class="welcome-card">
+
+            <div class="cake">🎂</div>
+
+            <h1 class="welcome-title">WELCOME</h1>
+
+            <h2 class="birthday-name">PITASHREE</h2>
+
+            <p class="warning">
+                Unfortunately, you've been given access to a website
+                made by your daughter.
+            </p>
+
+            <p class="warning">
+                There is no escape. 💀
+            </p>
+
+            <button id="enterButton">
+                ENTER AT YOUR OWN RISK →
+            </button>
+
+        </div>
+
     </div>
 
-    <!-- Extra sparkles -->
-    <div class="sparkle sparkle-1">✦</div>
-    <div class="sparkle sparkle-2">✧</div>
-    <div class="sparkle sparkle-3">✦</div>
-    <div class="sparkle sparkle-4">✧</div>
-
-    <!-- Welcome Card -->
-    <main class="welcome-card">
-
-        <div class="birthday-emoji">🎂</div>
-
-        <h1>
-            <span>WELCOME,</span>
-            <span>PITASHREE</span>
-        </h1>
-
-        <p class="message">
-            Unfortunately, you've been given access to<br>
-            a website made by your daughter.
-        </p>
-
-        <p class="skip-warning">
-            There is no escape. 💀
-        </p>
-
-        <button id="enterButton">
-            ENTER AT YOUR OWN RISK
-            <span>→</span>
-        </button>
-
-    </main>
+    <div id="birthdayAnimation" class="hidden"></div>
 
     <script src="script.js"></script>
 
