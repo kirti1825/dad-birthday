@@ -40,9 +40,8 @@ body {
 
     z-index: 100;
 }
-
 /* =========================
-   FIXED STARRY SKY
+   SOFT RANDOM STARRY SKY
 ========================= */
 
 .stars,
@@ -52,158 +51,113 @@ body {
     pointer-events: none;
 }
 
-/* MANY FIXED STARS */
+/* MAIN STARS — FEWER + RANDOM-LOOKING */
 .stars::before {
     content: "";
     position: absolute;
     inset: 0;
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.95) 0 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(210,225,255,.8) 0 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.7) 0 .8px, transparent 1.3px),
-        radial-gradient(circle, rgba(180,205,255,.65) 0 .8px, transparent 1.3px);
+        radial-gradient(circle at 8% 14%, rgba(255,255,255,.9) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 21% 67%, rgba(210,225,255,.8) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 34% 29%, rgba(255,255,255,.85) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 47% 81%, rgba(190,215,255,.7) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 59% 18%, rgba(255,255,255,.9) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 72% 52%, rgba(215,230,255,.75) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 86% 23%, rgba(255,255,255,.85) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 94% 76%, rgba(200,220,255,.7) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 13% 91%, rgba(255,255,255,.7) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 77% 88%, rgba(255,255,255,.8) 0 1.1px, transparent 1.9px);
 
-    background-size:
-        47px 53px,
-        71px 67px,
-        31px 43px,
-        89px 79px;
-
-    background-position:
-        5px 9px,
-        22px 31px,
-        11px 18px,
-        43px 7px;
-
-    animation: starTwinkle 3s ease-in-out infinite alternate;
+    animation: starShine 3.8s ease-in-out infinite alternate;
 }
 
-/* SECOND LAYER OF TINY STARS */
+/* SMALLER, SPARSE STARS */
 .stars::after {
     content: "";
     position: absolute;
     inset: 0;
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.9) 0 .8px, transparent 1.3px),
-        radial-gradient(circle, rgba(170,200,255,.7) 0 .7px, transparent 1.2px),
-        radial-gradient(circle, rgba(255,255,255,.65) 0 .7px, transparent 1.2px);
+        radial-gradient(circle at 16% 38%, rgba(255,255,255,.6) 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 29% 12%, rgba(180,205,255,.55) 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 41% 58%, rgba(255,255,255,.5) 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 67% 35%, rgba(200,220,255,.55) 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 82% 68%, rgba(255,255,255,.55) 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 91% 44%, rgba(190,215,255,.5) 0 .7px, transparent 1.5px);
 
-    background-size:
-        59px 61px,
-        83px 73px,
-        37px 47px;
-
-    background-position:
-        17px 4px,
-        39px 23px,
-        8px 29px;
-
-    animation: starTwinkleSlow 4.5s ease-in-out infinite alternate;
+    animation: starShineSoft 5s ease-in-out infinite alternate;
 }
 
-/* EXTRA DENSE STAR LAYER */
+/* A FEW EXTRA TINY STARS */
 .stars-two::before {
     content: "";
     position: absolute;
     inset: 0;
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.8) 0 .7px, transparent 1.2px),
-        radial-gradient(circle, rgba(200,220,255,.6) 0 .7px, transparent 1.2px);
+        radial-gradient(circle at 5% 52%, rgba(255,255,255,.45) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 52% 8%, rgba(210,225,255,.45) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 64% 73%, rgba(255,255,255,.4) 0 .6px, transparent 1.3px),
+        radial-gradient(circle at 89% 91%, rgba(200,220,255,.45) 0 .6px, transparent 1.3px);
 
-    background-size:
-        43px 41px,
-        67px 59px;
-
-    background-position:
-        13px 21px,
-        31px 11px;
-
-    animation: starTwinkleSoft 5.5s ease-in-out infinite alternate;
-}
-
-.stars-two::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,.55) 0 .6px, transparent 1px),
-        radial-gradient(circle, rgba(190,215,255,.5) 0 .6px, transparent 1px);
-
-    background-size:
-        27px 31px,
-        53px 47px;
-
-    background-position:
-        4px 15px,
-        26px 37px;
-
-    animation: starTwinkleVerySoft 6s ease-in-out infinite alternate;
+    animation: starShineTiny 6s ease-in-out infinite alternate;
 }
 
 /* =========================
-   TWINKLING
+   SOFT SHINING / TWINKLING
    NO MOVEMENT
 ========================= */
 
-@keyframes starTwinkle {
+@keyframes starShine {
     0% {
-        opacity: .45;
+        opacity: .35;
+        filter: drop-shadow(0 0 1px rgba(255,255,255,.2));
     }
 
     45% {
-        opacity: .9;
-    }
-
-    100% {
-        opacity: .55;
-    }
-}
-
-@keyframes starTwinkleSlow {
-    0% {
-        opacity: .3;
-    }
-
-    50% {
         opacity: .75;
-    }
-
-    100% {
-        opacity: .4;
-    }
-}
-
-@keyframes starTwinkleSoft {
-    0% {
-        opacity: .35;
-    }
-
-    50% {
-        opacity: .7;
+        filter: drop-shadow(0 0 4px rgba(210,225,255,.65));
     }
 
     100% {
         opacity: .45;
+        filter: drop-shadow(0 0 2px rgba(255,255,255,.35));
     }
 }
 
-@keyframes starTwinkleVerySoft {
+@keyframes starShineSoft {
     0% {
         opacity: .25;
     }
 
     50% {
-        opacity: .55;
+        opacity: .6;
+        filter: drop-shadow(0 0 3px rgba(200,220,255,.5));
     }
 
     100% {
         opacity: .3;
     }
 }
+
+@keyframes starShineTiny {
+    0% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .5;
+        filter: drop-shadow(0 0 2px rgba(220,230,255,.4));
+    }
+
+    100% {
+        opacity: .25;
+    }
+}
+
+
+
 
 /* =========================
    CRESCENT MOON
