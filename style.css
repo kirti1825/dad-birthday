@@ -199,28 +199,21 @@ body {
 ========================================= */
 
 .welcome-card {
-
     position: relative;
-
     z-index: 5;
 
     width: min(88%, 635px);
 
-    min-height: 700px;
+    height: calc(100vh - 30px);
+    min-height: 0;
 
-    margin: 0 auto;
+    margin: 15px auto;
 
-    top: 50%;
+    border-radius: 42px;
 
-    transform: translateY(-50%);
+    border: 1px solid rgba(160,175,235,0.28);
 
-    border-radius: 48px;
-
-    border:
-        1px solid rgba(160,175,235,0.28);
-
-    background:
-        rgba(9, 17, 53, 0.78);
+    background: rgba(9, 17, 53, 0.78);
 
     box-shadow:
         0 0 45px rgba(20,40,110,0.25),
@@ -229,21 +222,17 @@ body {
     backdrop-filter: blur(5px);
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
 
-    padding:
-        50px 35px;
+    padding: 30px 25px;
 
     animation: cardAppear 1.5s ease forwards;
 }
-
 
 /* =========================================
    BIRTHDAY EMOJI
