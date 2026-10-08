@@ -12,18 +12,50 @@ document.addEventListener("DOMContentLoaded", () => {
     const knock =
         document.querySelector(".knock");
 
+    const father =
+        document.querySelector(".father-walker");
+
 
     /*
-        PAPA REACHES THE GATE
+        PAPA WALKS STRAIGHT
+        TO THE CENTER OF THE GATE
+    */
+
+    /*
+        Papa animation lasts 8.5 seconds.
+        After he reaches the center,
+        give him a tiny pause.
+    */
+
+    setTimeout(() => {
+
+        if (!father) return;
+
+        /*
+            STOP ALL WALKING MOVEMENT
+        */
+
+        father.style.animation = "none";
+
+    }, 8500);
+
+
+    /*
+        LITTLE KNOCK
+        Papa has already reached
+        the center.
     */
 
     setTimeout(() => {
 
         if (!gate) return;
 
-        /* Cute little knock-knock */
+        /* Gate grows once */
 
-        gate.classList.add("shake");
+        gate.classList.add("knock-reaction");
+
+
+        /* Tiny knock sparkles */
 
         if (knock) {
 
@@ -40,37 +72,40 @@ document.addEventListener("DOMContentLoaded", () => {
                         [
                             {
                                 opacity: 0,
-                                transform: "scale(.5) translateY(5px)"
+                                transform:
+                                    "scale(.5) translateY(4px)"
                             },
 
                             {
                                 opacity: 1,
-                                transform: "scale(1.1) translateY(0)"
+                                transform:
+                                    "scale(1.15) translateY(0)"
                             },
 
                             {
                                 opacity: 0,
-                                transform: "scale(1.5) translateY(-12px)"
+                                transform:
+                                    "scale(1.4) translateY(-8px)"
                             }
                         ],
                         {
-                            duration: 700,
+                            duration: 550,
                             easing: "ease-out"
                         }
                     );
 
-                }, index * 130);
+                }, index * 100);
 
             });
+
         }
 
-    }, 11200);
+    }, 9000);
 
 
     /*
         GATE OPENS
-        No golden light.
-        Just the wooden doors opening.
+        AFTER THE KNOCK
     */
 
     setTimeout(() => {
@@ -78,28 +113,26 @@ document.addEventListener("DOMContentLoaded", () => {
         if (leftDoor) {
 
             leftDoor.style.transform =
-                "perspective(600px) rotateY(-82deg)";
+                "perspective(700px) rotateY(-88deg)";
 
         }
 
         if (rightDoor) {
 
             rightDoor.style.transform =
-                "perspective(600px) rotateY(82deg)";
+                "perspective(700px) rotateY(88deg)";
 
         }
 
-    }, 11900);
+    }, 9650);
 
 
     /*
-        PAPA WALKS THROUGH
+        PAPA WALKS STRAIGHT
+        THROUGH THE CENTER
     */
 
     setTimeout(() => {
-
-        const father =
-            document.querySelector(".father-walker");
 
         if (!father) return;
 
@@ -107,23 +140,22 @@ document.addEventListener("DOMContentLoaded", () => {
             "left 2.8s ease, opacity 2.8s ease";
 
         father.style.left =
-            "calc(50% + 20px)";
+            "calc(50% - 10px)";
 
         father.style.opacity = "1";
 
-    }, 13000);
+    }, 10800);
 
 
     /*
-        NEXT SCENE
-        We'll connect this to the birthday
-        party page after we finish it.
+        NEXT PAGE
     */
 
     setTimeout(() => {
 
-        window.location.href = "page4.html";
+        window.location.href =
+            "page4.html";
 
-    }, 16500);
+    }, 14000);
 
 });
