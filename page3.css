@@ -1,7 +1,11 @@
+/* ================================
+   BASIC RESET
+================================ */
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html,
@@ -12,37 +16,42 @@ body {
 }
 
 body {
-    background: #030713;
+    background: #080e25;
+    font-family: Georgia, serif;
 }
 
 
-/* =========================
-   MAIN NIGHT
-========================= */
+/* ================================
+   MAIN SCENE
+================================ */
 
 .scene {
-    position: fixed;
-    inset: 0;
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
     overflow: hidden;
 
     background:
         radial-gradient(
             circle at 50% 65%,
-            rgba(45, 67, 120, .32),
-            transparent 50%
+            rgba(38, 58, 110, .22),
+            transparent 45%
         ),
         linear-gradient(
             to bottom,
-            #02040d,
-            #071126 55%,
-            #0a1224
+            #080e25,
+            #0b1230 55%,
+            #070b1c
         );
 }
 
 
-/* =========================
+/* ================================
    SKY
-========================= */
+================================ */
 
 .sky {
     position: absolute;
@@ -50,29 +59,18 @@ body {
 
     background:
         radial-gradient(
-            ellipse at 50% 80%,
-            rgba(42, 62, 110, .28),
+            circle at 50% 35%,
+            rgba(70, 90, 150, .10),
             transparent 55%
         );
 
-    animation: skyBreath 6s ease-in-out infinite alternate;
-}
-
-@keyframes skyBreath {
-
-    from {
-        opacity: .65;
-    }
-
-    to {
-        opacity: 1;
-    }
+    pointer-events: none;
 }
 
 
-/* =========================
+/* ================================
    MOON
-========================= */
+================================ */
 
 .moon {
     position: absolute;
@@ -80,20 +78,20 @@ body {
     top: 7%;
     right: 9%;
 
-    width: 72px;
-    height: 72px;
+    width: 78px;
+    height: 78px;
 
     border-radius: 50%;
 
-    background: #f9f7e9;
+    background: #fffdf0;
 
     box-shadow:
-        0 0 12px rgba(255,255,230,.45),
-        0 0 28px rgba(190,210,255,.22);
+        0 0 15px rgba(255, 250, 210, .55),
+        0 0 35px rgba(220, 225, 255, .22);
 
     overflow: hidden;
 
-    z-index: 3;
+    z-index: 2;
 }
 
 .moon::after {
@@ -101,233 +99,102 @@ body {
 
     position: absolute;
 
-    width: 72px;
-    height: 72px;
+    width: 78px;
+    height: 78px;
 
     top: -5px;
     left: 22px;
 
     border-radius: 50%;
 
-    background: #030713;
+    background: #080e25;
 }
 
 
-/* =========================
+/* ================================
    STARS
-========================= */
+   FIXED — NO MOVEMENT
+================================ */
 
 .stars {
     position: absolute;
     inset: 0;
 
     pointer-events: none;
+
+    z-index: 1;
 }
 
+.stars-one::before,
+.stars-two::before,
+.stars-three::before {
+    content: "";
 
-/* MAIN STARS */
-
-.stars-one {
-
-    background-image:
-
-        radial-gradient(
-            circle at 6% 14%,
-            rgba(255,255,255,.95) 0 1.3px,
-            transparent 2.5px
-        ),
-
-        radial-gradient(
-            circle at 15% 38%,
-            rgba(210,225,255,.8) 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 25% 18%,
-            rgba(255,255,255,.9) 0 1.2px,
-            transparent 2.3px
-        ),
-
-        radial-gradient(
-            circle at 35% 44%,
-            rgba(210,225,255,.75) 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 45% 12%,
-            rgba(255,255,255,.9) 0 1.2px,
-            transparent 2.3px
-        ),
-
-        radial-gradient(
-            circle at 55% 31%,
-            rgba(210,225,255,.8) 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 65% 15%,
-            rgba(255,255,255,.9) 0 1.2px,
-            transparent 2.3px
-        ),
-
-        radial-gradient(
-            circle at 75% 39%,
-            rgba(210,225,255,.8) 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 86% 18%,
-            rgba(255,255,255,.95) 0 1.3px,
-            transparent 2.5px
-        ),
-
-        radial-gradient(
-            circle at 95% 47%,
-            rgba(210,225,255,.75) 0 1px,
-            transparent 2px
-        );
-
-    animation: starShine 4s ease-in-out infinite alternate;
-}
-
-
-/* SECOND STAR LAYER */
-
-.stars-two {
-
-    background-image:
-
-        radial-gradient(circle at 9% 62%, rgba(255,255,255,.55) 0 .8px, transparent 1.7px),
-        radial-gradient(circle at 20% 76%, rgba(190,215,255,.55) 0 .8px, transparent 1.7px),
-        radial-gradient(circle at 31% 67%, rgba(255,255,255,.6) 0 .8px, transparent 1.7px),
-        radial-gradient(circle at 42% 83%, rgba(190,215,255,.5) 0 .8px, transparent 1.7px),
-        radial-gradient(circle at 53% 57%, rgba(255,255,255,.55) 0 .8px, transparent 1.7px),
-        radial-gradient(circle at 64% 72%, rgba(190,215,255,.5) 0 .8px, transparent 1.7px),
-        radial-gradient(circle at 77% 62%, rgba(255,255,255,.6) 0 .8px, transparent 1.7px),
-        radial-gradient(circle at 89% 78%, rgba(190,215,255,.55) 0 .8px, transparent 1.7px);
-
-    animation: softStars 5s ease-in-out infinite alternate;
-}
-
-
-/* TINY STARS */
-
-.stars-three {
-
-    background-image:
-
-        radial-gradient(circle at 5% 87%, rgba(255,255,255,.4) 0 .6px, transparent 1.4px),
-        radial-gradient(circle at 17% 91%, rgba(190,215,255,.4) 0 .6px, transparent 1.4px),
-        radial-gradient(circle at 29% 86%, rgba(255,255,255,.4) 0 .6px, transparent 1.4px),
-        radial-gradient(circle at 41% 94%, rgba(190,215,255,.4) 0 .6px, transparent 1.4px),
-        radial-gradient(circle at 58% 89%, rgba(255,255,255,.4) 0 .6px, transparent 1.4px),
-        radial-gradient(circle at 72% 92%, rgba(190,215,255,.4) 0 .6px, transparent 1.4px),
-        radial-gradient(circle at 84% 86%, rgba(255,255,255,.4) 0 .6px, transparent 1.4px),
-        radial-gradient(circle at 96% 93%, rgba(190,215,255,.4) 0 .6px, transparent 1.4px);
-
-    animation: tinyStars 6s ease-in-out infinite alternate;
-}
-
-
-@keyframes starShine {
-
-    0% {
-        opacity: .35;
-        filter: drop-shadow(0 0 1px rgba(200,220,255,.2));
-    }
-
-    50% {
-        opacity: .9;
-        filter: drop-shadow(0 0 5px rgba(200,220,255,.65));
-    }
-
-    100% {
-        opacity: .48;
-    }
-}
-
-
-@keyframes softStars {
-
-    from {
-        opacity: .22;
-    }
-
-    to {
-        opacity: .7;
-    }
-}
-
-
-@keyframes tinyStars {
-
-    from {
-        opacity: .18;
-    }
-
-    to {
-        opacity: .5;
-    }
-}
-
-
-/* =========================
-   NIGHT GLOW
-========================= */
-
-.night-glow {
     position: absolute;
+    inset: 0;
 
-    left: 50%;
-    bottom: 5%;
-
-    width: 85vw;
-    height: 45vw;
-
-    max-width: 700px;
-    max-height: 350px;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(80,105,165,.2),
-            transparent 70%
-        );
-
-    filter: blur(15px);
-
-    animation: glowPulse 5s ease-in-out infinite alternate;
-}
-
-@keyframes glowPulse {
-
-    from {
-        opacity: .45;
-    }
-
-    to {
-        opacity: .85;
-    }
+    background-repeat: no-repeat;
 }
 
 
-/* =========================
+/* Main stars */
+
+.stars-one::before {
+    background-image:
+        radial-gradient(circle at 6% 16%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 14% 42%, #dce7ff 0 1px, transparent 2px),
+        radial-gradient(circle at 23% 10%, #fff 0 1.2px, transparent 2px),
+        radial-gradient(circle at 31% 54%, #dce7ff 0 1px, transparent 2px),
+        radial-gradient(circle at 41% 18%, #fff 0 1.1px, transparent 2px),
+        radial-gradient(circle at 49% 72%, #dce7ff 0 1px, transparent 2px),
+        radial-gradient(circle at 58% 28%, #fff 0 1.2px, transparent 2px),
+        radial-gradient(circle at 68% 61%, #dce7ff 0 1px, transparent 2px),
+        radial-gradient(circle at 77% 18%, #fff 0 1.1px, transparent 2px),
+        radial-gradient(circle at 87% 47%, #dce7ff 0 1px, transparent 2px),
+        radial-gradient(circle at 94% 76%, #fff 0 1.2px, transparent 2px);
+}
+
+
+/* Smaller stars */
+
+.stars-two::before {
+    opacity: .65;
+
+    background-image:
+        radial-gradient(circle at 9% 78%, #fff 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 19% 30%, #cddcff 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 28% 82%, #fff 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 37% 38%, #dce7ff 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 55% 12%, #fff 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 63% 87%, #dce7ff 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 73% 42%, #fff 0 .7px, transparent 1.5px),
+        radial-gradient(circle at 84% 86%, #dce7ff 0 .7px, transparent 1.5px);
+}
+
+
+/* Tiny stars */
+
+.stars-three::before {
+    opacity: .4;
+
+    background-image:
+        radial-gradient(circle at 4% 52%, #fff 0 .5px, transparent 1.2px),
+        radial-gradient(circle at 17% 63%, #dce7ff 0 .5px, transparent 1.2px),
+        radial-gradient(circle at 34% 25%, #fff 0 .5px, transparent 1.2px),
+        radial-gradient(circle at 47% 91%, #dce7ff 0 .5px, transparent 1.2px),
+        radial-gradient(circle at 71% 9%, #fff 0 .5px, transparent 1.2px),
+        radial-gradient(circle at 91% 34%, #dce7ff 0 .5px, transparent 1.2px);
+}
+
+
+/* ================================
    TEXT
-========================= */
+================================ */
 
 .scene-text {
-
     position: absolute;
 
-    top: 11%;
+    top: 12%;
     left: 50%;
 
     transform: translateX(-50%);
@@ -336,483 +203,426 @@ body {
 
     text-align: center;
 
-    color: #dce7ff;
+    color: rgba(255, 250, 240, .88);
 
     font-family: Georgia, serif;
 
-    font-size: clamp(17px, 4.5vw, 27px);
+    font-size: clamp(16px, 3.8vw, 23px);
 
     letter-spacing: 3px;
 
     text-shadow:
-        0 0 8px rgba(180,205,255,.45),
-        0 0 20px rgba(120,160,255,.2);
+        0 0 10px rgba(255,255,255,.15);
 
-    opacity: 0;
+    z-index: 5;
 
-    animation: textIn 2s ease forwards;
-
-    animation-delay: 2.8s;
-
-    z-index: 10;
+    animation: textAppear 2s ease forwards;
 }
 
-@keyframes textIn {
+@keyframes textAppear {
 
     from {
         opacity: 0;
-        transform:
-            translateX(-50%)
-            translateY(12px);
+        transform: translate(-50%, 10px);
     }
 
     to {
         opacity: 1;
-        transform:
-            translateX(-50%)
-            translateY(0);
+        transform: translate(-50%, 0);
     }
+
 }
 
 
-/* =========================
-   GATE AREA
-========================= */
+/* ================================
+   BIG HORIZONTAL GATE
+================================ */
 
 .gate-area {
-
     position: absolute;
 
     left: 50%;
-    bottom: 12%;
-
-    width: min(66vw, 310px);
-    height: min(62vh, 430px);
+    bottom: 13%;
 
     transform: translateX(-50%);
 
-    opacity: 0;
+    width: min(90vw, 520px);
+    height: min(48vh, 310px);
 
-    animation: gateAppear 2.5s ease forwards;
-
-    animation-delay: 2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 
     z-index: 8;
 }
 
 
-@keyframes gateAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateX(-50%)
-            translateY(25px)
-            scale(.9);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateX(-50%)
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================
-   WOODEN GATE
-========================= */
+/* Whole gate */
 
 .gate {
+    position: relative;
 
-    position: absolute;
+    width: 100%;
+    height: 100%;
 
-    inset: 0;
-
-    filter:
-        drop-shadow(
-            0 12px 18px rgba(0,0,0,.55)
-        );
-}
-
-
-/* ARCH */
-
-.gate-arch {
-
-    position: absolute;
-
-    top: 0;
-    left: 5%;
-    right: 5%;
-
-    height: 27%;
-
-    border-radius:
-        50% 50% 12px 12px;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #2a180f,
-            #583622 28%,
-            #321d12 50%,
-            #69432a 72%,
-            #29170e
-        );
-
-    border:
-        4px solid #70482c;
-
-    box-shadow:
-        inset 0 0 18px rgba(0,0,0,.65),
-        0 0 10px rgba(80,55,35,.3);
-}
-
-
-/* LITTLE GATE DECORATION */
-
-.gate-detail {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    color: #c39a68;
-
-    font-size: 25px;
-
-    opacity: .75;
-
-    text-shadow:
-        0 0 6px rgba(180,140,95,.35);
-}
-
-
-/* FRAME */
-
-.gate-frame {
-
-    position: absolute;
-
-    left: 9%;
-    right: 9%;
-
-    top: 22%;
-    bottom: 0;
-
-    overflow: hidden;
-
-    background: #1b100a;
-
-    border:
-        6px solid #53331f;
-
-    border-top: 0;
-
-    box-shadow:
-        inset 0 0 25px rgba(0,0,0,.9);
-}
-
-
-/* DOORS */
-
-.door {
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    width: 50%;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-            #25150c 0,
-            #3d2516 10px,
-            #2a180e 20px
-        );
-
-    border:
-        3px solid #654027;
+    transform-origin: center bottom;
 
     transition:
-        transform 1.7s cubic-bezier(.6,0,.25,1);
+        transform .28s ease;
 
-    z-index: 5;
+    filter:
+        drop-shadow(0 12px 18px rgba(0,0,0,.45));
 }
 
 
-/* WOOD GRAIN */
+/* ================================
+   GATE ARCH
+================================ */
 
-.wood-lines {
-
+.gate-arch {
     position: absolute;
 
-    inset: 0;
+    top: 0;
+    left: 50%;
 
-    opacity: .35;
+    transform: translateX(-50%);
+
+    width: 42%;
+    height: 22%;
+
+    border-radius: 80px 80px 0 0;
 
     background:
+        linear-gradient(
+            135deg,
+            #704329,
+            #a9683d 45%,
+            #60351f
+        );
 
+    border:
+        5px solid #452616;
+
+    box-shadow:
+        inset 0 0 12px rgba(0,0,0,.45),
+        0 5px 12px rgba(0,0,0,.25);
+
+    z-index: 2;
+}
+
+
+/* little decoration */
+
+.gate-detail {
+    position: absolute;
+
+    top: 27%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #f1d8a3;
+
+    font-size: 18px;
+
+    opacity: .75;
+}
+
+
+/* ================================
+   GATE FRAME
+================================ */
+
+.gate-frame {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 82%;
+
+    display: flex;
+
+    border:
+        7px solid #432516;
+
+    background: #59331f;
+
+    box-shadow:
+        inset 0 0 18px rgba(0,0,0,.5);
+}
+
+
+/* ================================
+   DOORS
+================================ */
+
+.door {
+    position: relative;
+
+    width: 50%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5a321e 0%,
+            #875235 25%,
+            #704029 50%,
+            #925b39 72%,
+            #56301d 100%
+        );
+
+    border: 3px solid #3c2115;
+
+    transition:
+        transform 1.4s cubic-bezier(.2,.75,.25,1);
+
+    transform-origin: center;
+}
+
+
+/* wood texture */
+
+.wood-lines {
+    position: absolute;
+    inset: 10px;
+
+    opacity: .4;
+
+    background:
         repeating-linear-gradient(
-            7deg,
-            transparent 0,
-            transparent 22px,
-            rgba(120,75,40,.45) 23px,
-            transparent 25px
+            90deg,
+            transparent 0 20px,
+            rgba(40,18,10,.35) 21px 23px,
+            transparent 24px 48px
         );
 }
 
 
-/* HANDLES */
+/* handles */
 
 .door-handle {
-
     position: absolute;
 
-    top: 52%;
+    top: 50%;
 
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 
     border-radius: 50%;
 
-    background: #9a7045;
+    background: #d6a65b;
 
     box-shadow:
-        0 0 4px rgba(180,130,80,.35);
-}
-
-.left-door {
-    left: 0;
-    transform-origin: left center;
+        0 0 8px rgba(230,190,110,.3);
 }
 
 .left-door .door-handle {
-    right: 9px;
-}
-
-.right-door {
-    right: 0;
-    transform-origin: right center;
+    right: 13px;
 }
 
 .right-door .door-handle {
-    left: 9px;
+    left: 13px;
 }
 
 
-/* =========================
-   PAPA WALKER
-========================= */
+/* ================================
+   PAPA
+================================ */
 
 .father-walker {
-
     position: absolute;
 
-    left: -150px;
+    left: -155px;
     bottom: 3%;
 
-    width: min(175px, 38vw);
+    width: min(145px, 30vw);
 
-    z-index: 20;
+    z-index: 12;
 
-    opacity: 0;
-
-    filter:
-        drop-shadow(
-            0 0 8px rgba(180,205,255,.18)
-        );
+    pointer-events: none;
 
     animation:
-        papaWalk 7s cubic-bezier(.45,0,.25,1)
+        papaApproach 8.5s
+        cubic-bezier(.35,.05,.2,1)
         forwards;
-
-    animation-delay: 4s;
 }
 
 
-.father-walker img {
+/* Image */
 
+.father-walker img {
     display: block;
 
     width: 100%;
     height: auto;
 
-    animation:
-        walkingBounce .8s ease-in-out infinite;
-
     filter:
-        drop-shadow(
-            0 5px 7px rgba(0,0,0,.4)
-        );
+        drop-shadow(0 8px 10px rgba(0,0,0,.45));
+
+    /* ONLY walking movement */
+    animation:
+        papaWalkBounce .8s ease-in-out infinite alternate;
 }
 
 
-@keyframes papaWalk {
+/* Papa moves straight toward center */
+
+@keyframes papaApproach {
 
     0% {
-        left: -150px;
-        opacity: 0;
-    }
-
-    8% {
-        opacity: 1;
-    }
-
-    35% {
-        left: 15%;
-    }
-
-    62% {
-        left: 31%;
-    }
-
-    82% {
-        left: 40%;
+        left: -155px;
     }
 
     100% {
-        left: calc(50% - 78px);
-        opacity: 1;
+        left: calc(50% - 72px);
     }
 }
 
 
-@keyframes walkingBounce {
+/* tiny natural walking bounce */
 
-    0% {
-        transform:
-            translateY(0)
-            rotate(-.5deg);
+@keyframes papaWalkBounce {
+
+    from {
+        transform: translateY(0);
     }
 
-    50% {
-        transform:
-            translateY(-4px)
-            rotate(.5deg);
-    }
-
-    100% {
-        transform:
-            translateY(0)
-            rotate(-.5deg);
+    to {
+        transform: translateY(-3px);
     }
 }
 
 
-/* =========================
-   KNOCK SPARKS
-========================= */
+/* ================================
+   KNOCK SPARKLES
+================================ */
 
 .knock {
-
     position: absolute;
 
-    left: calc(50% + 12px);
-    bottom: 30%;
+    left: 50%;
+    bottom: 43%;
+
+    transform: translateX(-50%);
 
     display: flex;
-
-    gap: 8px;
-
-    color: #dce8ff;
-
-    font-size: 18px;
+    gap: 12px;
 
     opacity: 0;
 
-    z-index: 30;
+    z-index: 15;
 
     pointer-events: none;
-
-    text-shadow:
-        0 0 7px rgba(200,220,255,.8);
 }
 
 .knock span {
-    opacity: 0;
+    color: #ead8a8;
+
+    font-size: 13px;
+
+    text-shadow:
+        0 0 8px rgba(255,230,170,.5);
 }
 
 
-/* =========================
-   GATE SHAKE
-========================= */
+/* ================================
+   GATE KNOCK REACTION
+================================ */
 
-.gate.shake {
+/*
+    Gate becomes slightly bigger once,
+    then returns to normal.
+*/
 
+.gate.knock-reaction {
     animation:
-        gateShake .16s ease-in-out 0s 3;
+        gateKnock .42s ease-in-out;
 }
 
-@keyframes gateShake {
+@keyframes gateKnock {
 
     0% {
-        transform: translateX(0);
+        transform: scale(1);
     }
 
-    25% {
-        transform: translateX(-4px) rotate(-.3deg);
-    }
-
-    50% {
-        transform: translateX(4px) rotate(.3deg);
-    }
-
-    75% {
-        transform: translateX(-3px);
+    45% {
+        transform: scale(1.075);
     }
 
     100% {
-        transform: translateX(0);
+        transform: scale(1);
     }
 }
 
 
-/* =========================
+/* ================================
    MOBILE
-========================= */
+================================ */
 
 @media (max-width: 600px) {
 
     .moon {
         width: 64px;
         height: 64px;
-        right: 7%;
-        top: 6%;
+
+        top: 7%;
+        right: 8%;
     }
 
     .moon::after {
         width: 64px;
         height: 64px;
-        left: 20px;
+
+        left: 19px;
     }
 
     .scene-text {
-        top: 12%;
-        font-size: 18px;
+        top: 13%;
+
+        font-size: 15px;
+
         letter-spacing: 2px;
     }
 
     .gate-area {
-        width: 67vw;
-        height: 54vh;
+        width: 92vw;
+        height: 42vh;
+
         bottom: 14%;
     }
 
     .father-walker {
-        width: 150px;
-        bottom: 4%;
+        width: 115px;
     }
+
+    @keyframes papaApproach {
+
+        0% {
+            left: -125px;
+        }
+
+        100% {
+            left: calc(50% - 58px);
+        }
+    }
+
+}
+
+
+/* Very small phones */
+
+@media (max-height: 700px) {
+
+    .gate-area {
+        bottom: 10%;
+        height: 40vh;
+    }
+
+    .father-walker {
+        bottom: 2%;
+    }
+
 }
