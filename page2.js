@@ -60,3 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+setTimeout(() => {
+    window.location.href = "page3.html";
+}, 12000);
