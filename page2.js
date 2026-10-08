@@ -1,18 +1,11 @@
-/* =========================================
-   PAGE 2 — MEET MY PITASHREE
-========================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    /*
-     * Page 2 is intentionally kept separate
-     * from Page 1.
-     *
-     * Future animations/interactions for
-     * this page can be added here.
-     */
+    /* ==========================================
+       FATHER IMAGE
+       ========================================== */
 
-    const character = document.querySelector(".father-character");
+    const character =
+        document.querySelector(".father-character");
 
     if (character) {
 
@@ -23,5 +16,47 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+
+
+    /* ==========================================
+       TAP TO REVEAL
+       ========================================== */
+
+    const cards =
+        document.querySelectorAll(".reveal-card");
+
+
+    cards.forEach((card) => {
+
+        const button =
+            card.querySelector(".reveal-button");
+
+
+        button.addEventListener("click", () => {
+
+            const wasOpen =
+                card.classList.contains("open");
+
+
+            /* Close other cards */
+
+            cards.forEach((otherCard) => {
+
+                otherCard.classList.remove("open");
+
+            });
+
+
+            /* Open the selected one */
+
+            if (!wasOpen) {
+
+                card.classList.add("open");
+
+            }
+
+        });
+
+    });
 
 });
