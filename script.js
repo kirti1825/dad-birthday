@@ -2,10 +2,12 @@ const enterButton = document.getElementById("enterButton");
 
 enterButton.addEventListener("click", () => {
 
-    enterButton.style.transform = "scale(0.96)";
+    enterButton.classList.add("pressed");
 
     setTimeout(() => {
-        enterButton.style.transform = "";
-    }, 150);
+
+        enterButton.classList.remove("pressed");
+
+    }, 180);
 
 });
