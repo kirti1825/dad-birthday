@@ -15,3 +15,4 @@ enterButton.addEventListener("click", () => {
     window.location.href = "page2.html";
 
 }, 1800);
+});
