@@ -1,0 +1,1308 @@
+/* =========================================
+   PAGE 2 — MEET MY PITASHREE
+========================================= */
+
+
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #101c38 0%,
+            #07101f 42%,
+            #02050c 100%
+        );
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =========================================
+   NIGHT SKY
+========================================= */
+
+.night-sky {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   MOON
+========================================= */
+
+.moon {
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    right: 10%;
+    top: 8%;
+
+    border-radius: 50%;
+
+    background: #fff8df;
+
+    box-shadow:
+        0 0 25px rgba(255, 245, 200, .45),
+        0 0 50px rgba(255, 245, 200, .20),
+        0 0 90px rgba(255, 245, 200, .08);
+
+    overflow: hidden;
+}
+
+.moon::after {
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    left: 25px;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #07101f;
+}
+
+
+/* =========================================
+   FIXED STARS
+   SAME FEEL AS PAGE 1
+========================================= */
+
+.stars,
+.stars-two {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+/* MAIN STARS */
+
+.stars::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle at 5% 12%,
+            rgba(255,255,255,.9) 0 1.2px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 12% 35%,
+            rgba(210,225,255,.8) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 18% 72%,
+            rgba(255,255,255,.85) 0 1.2px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 25% 20%,
+            rgba(190,215,255,.75) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 32% 48%,
+            rgba(255,255,255,.9) 0 1.2px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 39% 82%,
+            rgba(210,225,255,.75) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 46% 16%,
+            rgba(255,255,255,.85) 0 1.1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 53% 62%,
+            rgba(200,220,255,.8) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 60% 30%,
+            rgba(255,255,255,.9) 0 1.2px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 67% 87%,
+            rgba(210,225,255,.7) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 74% 12%,
+            rgba(255,255,255,.85) 0 1.1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 81% 48%,
+            rgba(200,220,255,.8) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 88% 25%,
+            rgba(255,255,255,.9) 0 1.2px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 95% 68%,
+            rgba(210,225,255,.75) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 9% 88%,
+            rgba(255,255,255,.7) 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 43% 38%,
+            rgba(255,255,255,.65) 0 .8px,
+            transparent 1.6px
+        ),
+
+        radial-gradient(
+            circle at 57% 91%,
+            rgba(190,215,255,.65) 0 .8px,
+            transparent 1.6px
+        ),
+
+        radial-gradient(
+            circle at 91% 84%,
+            rgba(255,255,255,.7) 0 .9px,
+            transparent 1.7px
+        );
+
+    animation:
+        starShine 3.8s ease-in-out infinite alternate;
+}
+
+
+/* SMALLER STARS */
+
+.stars::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(circle at 8% 55%,
+            rgba(255,255,255,.55) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 16% 8%,
+            rgba(180,205,255,.5) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 22% 91%,
+            rgba(255,255,255,.5) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 29% 63%,
+            rgba(200,220,255,.55) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 36% 10%,
+            rgba(255,255,255,.5) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 48% 72%,
+            rgba(190,215,255,.5) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 55% 44%,
+            rgba(255,255,255,.5) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 63% 7%,
+            rgba(200,220,255,.55) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 70% 66%,
+            rgba(255,255,255,.5) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 78% 36%,
+            rgba(190,215,255,.5) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 85% 78%,
+            rgba(255,255,255,.55) 0 .7px,
+            transparent 1.5px),
+
+        radial-gradient(circle at 93% 42%,
+            rgba(200,220,255,.5) 0 .7px,
+            transparent 1.5px);
+
+    animation:
+        starShineSoft 5s ease-in-out infinite alternate;
+}
+
+
+/* TINY STARS */
+
+.stars-two::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(circle at 4% 76%,
+            rgba(255,255,255,.4) 0 .6px,
+            transparent 1.3px),
+
+        radial-gradient(circle at 14% 48%,
+            rgba(210,225,255,.4) 0 .6px,
+            transparent 1.3px),
+
+        radial-gradient(circle at 27% 34%,
+            rgba(255,255,255,.4) 0 .6px,
+            transparent 1.3px),
+
+        radial-gradient(circle at 40% 94%,
+            rgba(200,220,255,.4) 0 .6px,
+            transparent 1.3px),
+
+        radial-gradient(circle at 51% 25%,
+            rgba(255,255,255,.4) 0 .6px,
+            transparent 1.3px),
+
+        radial-gradient(circle at 65% 52%,
+            rgba(210,225,255,.4) 0 .6px,
+            transparent 1.3px),
+
+        radial-gradient(circle at 76% 91%,
+            rgba(255,255,255,.4) 0 .6px,
+            transparent 1.3px),
+
+        radial-gradient(circle at 89% 58%,
+            rgba(200,220,255,.4) 0 .6px,
+            transparent 1.3px);
+
+    animation:
+        starShineTiny 6s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   STAR SHINE
+========================================= */
+
+@keyframes starShine {
+
+    0% {
+        opacity: .38;
+
+        filter:
+            drop-shadow(
+                0 0 1px
+                rgba(255,255,255,.2)
+            );
+    }
+
+    50% {
+        opacity: .85;
+
+        filter:
+            drop-shadow(
+                0 0 4px
+                rgba(210,225,255,.65)
+            );
+    }
+
+    100% {
+        opacity: .48;
+
+        filter:
+            drop-shadow(
+                0 0 2px
+                rgba(255,255,255,.35)
+            );
+    }
+}
+
+@keyframes starShineSoft {
+
+    0% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .65;
+
+        filter:
+            drop-shadow(
+                0 0 3px
+                rgba(200,220,255,.5)
+            );
+    }
+
+    100% {
+        opacity: .32;
+    }
+}
+
+@keyframes starShineTiny {
+
+    0% {
+        opacity: .20;
+    }
+
+    50% {
+        opacity: .55;
+
+        filter:
+            drop-shadow(
+                0 0 2px
+                rgba(220,230,255,.4)
+            );
+    }
+
+    100% {
+        opacity: .25;
+    }
+}
+
+
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.pitashree-page {
+
+    position: relative;
+
+    z-index: 5;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    padding:
+        95px 7vw
+        55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    animation:
+        pageReveal 2.2s ease forwards;
+
+    animation-delay: .15s;
+}
+
+
+/* =========================================
+   PAGE REVEAL
+========================================= */
+
+@keyframes pageReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.97)
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.page-heading {
+
+    text-align: center;
+
+    margin-bottom: 38px;
+
+    animation:
+        headingReveal 1.8s ease both;
+
+    animation-delay: .5s;
+}
+
+@keyframes headingReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+.tiny-sparkles {
+
+    color: #ffe9a8;
+
+    font-size: 1rem;
+
+    letter-spacing: 15px;
+
+    margin-bottom: 9px;
+
+    text-shadow:
+        0 0 8px rgba(255,220,130,.7),
+        0 0 20px rgba(255,200,80,.35);
+
+    animation:
+        littleSparkle 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes littleSparkle {
+
+    from {
+        opacity: .45;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.meet-text {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(1.15rem, 4vw, 1.7rem);
+
+    letter-spacing: .32em;
+
+    margin-left: .32em;
+
+    color:
+        rgba(240,245,255,.82);
+}
+
+.page-heading h1 {
+
+    margin-top: 5px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2.4rem, 8vw, 4.8rem);
+
+    letter-spacing: .08em;
+
+    font-weight: 700;
+
+    color: #fffaf0;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.3),
+        0 0 28px rgba(255,210,110,.25);
+}
+
+.page-heading h1 span {
+
+    display: inline-block;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: .65em;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(255,210,100,.45)
+        );
+}
+
+.golden-line {
+
+    width: 90px;
+
+    height: 1px;
+
+    margin: 15px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e8c77b,
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(240,200,110,.35);
+}
+
+
+/* =========================================
+   PROFILE AREA
+========================================= */
+
+.profile-area {
+
+    width: min(1100px, 94vw);
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, .85fr)
+        minmax(360px, 1fr);
+
+    align-items: center;
+
+    gap: clamp(35px, 7vw, 100px);
+
+    padding: 25px 0 15px;
+}
+
+
+/* =========================================
+   CHARACTER SIDE
+========================================= */
+
+.character-side {
+
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation:
+        characterReveal 2s cubic-bezier(.2,.8,.2,1) both;
+
+    animation-delay: .8s;
+}
+
+@keyframes characterReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50px)
+            scale(.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+/* GOLDEN LIGHT BEHIND PAPA */
+
+.character-glow {
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,211,110,.34) 0%,
+            rgba(255,190,70,.14) 35%,
+            transparent 72%
+        );
+
+    filter: blur(4px);
+
+    animation:
+        goldenGlow 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes goldenGlow {
+
+    from {
+        transform: scale(.92);
+
+        opacity: .55;
+    }
+
+    to {
+        transform: scale(1.08);
+
+        opacity: .85;
+    }
+}
+
+
+/* CHARACTER */
+
+.father-character {
+
+    position: relative;
+
+    z-index: 3;
+
+    display: block;
+
+    width: min(360px, 80vw);
+
+    max-height: 500px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 12px 20px
+            rgba(0,0,0,.5)
+        )
+
+        drop-shadow(
+            0 0 14px
+            rgba(255,215,125,.18)
+        );
+
+    animation:
+        characterFloat 4s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* GROUND SHADOW */
+
+.character-shadow {
+
+    position: absolute;
+
+    bottom: 5px;
+
+    width: 170px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.55);
+
+    filter: blur(9px);
+
+    animation:
+        shadowFloat 4s ease-in-out infinite;
+}
+
+@keyframes shadowFloat {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        opacity: .55;
+    }
+
+    50% {
+        transform: scale(.86);
+
+        opacity: .35;
+    }
+}
+
+
+/* CHARACTER SPARKLES */
+
+.sparkle {
+
+    position: absolute;
+
+    z-index: 4;
+
+    color: #ffe6a0;
+
+    font-size: 1.15rem;
+
+    text-shadow:
+        0 0 8px #ffd56e,
+        0 0 18px rgba(255,210,100,.7);
+
+    animation:
+        sparkleGlow 2.4s ease-in-out infinite alternate;
+}
+
+.sparkle-one {
+    top: 24%;
+    left: 12%;
+}
+
+.sparkle-two {
+    top: 40%;
+    right: 8%;
+
+    animation-delay: .7s;
+}
+
+.sparkle-three {
+    bottom: 25%;
+    left: 18%;
+
+    animation-delay: 1.2s;
+}
+
+@keyframes sparkleGlow {
+
+    from {
+        opacity: .25;
+
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1.18);
+    }
+}
+
+
+/* =========================================
+   INFORMATION SIDE
+========================================= */
+
+.information-side {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    animation:
+        informationReveal 1.8s ease both;
+
+    animation-delay: 1s;
+}
+
+@keyframes informationReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(45px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* NAME */
+
+.name-block {
+
+    padding-bottom: 8px;
+}
+
+.name-block h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(1.35rem, 3.5vw, 2rem);
+
+    letter-spacing: .08em;
+
+    color: #fff8e8;
+
+    text-shadow:
+        0 0 12px
+        rgba(255,220,150,.18);
+}
+
+.name-line {
+
+    width: 120px;
+
+    height: 1px;
+
+    margin-top: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #dcb96e,
+            transparent
+        );
+
+    opacity: .7;
+}
+
+
+/* DOB */
+
+.dob-label {
+
+    margin-top: 21px;
+
+    font-size: .72rem;
+
+    letter-spacing: .28em;
+
+    color:
+        rgba(220,230,250,.58);
+
+    font-weight: 600;
+}
+
+.dob-date {
+
+    margin-top: 4px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(1rem, 2.5vw, 1.25rem);
+
+    letter-spacing: .18em;
+
+    color: #f0d28d;
+
+    text-shadow:
+        0 0 10px
+        rgba(240,200,110,.25);
+}
+
+
+/* =========================================
+   INFO BLOCKS
+========================================= */
+
+.info-block {
+
+    padding:
+        15px 17px;
+
+    border-left:
+        1px solid
+        rgba(225,190,105,.35);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035),
+            transparent
+        );
+
+    border-radius: 0 12px 12px 0;
+
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        transform .35s ease;
+}
+
+.info-block:hover {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,220,130,.08),
+            transparent
+        );
+
+    border-color:
+        rgba(240,205,125,.7);
+
+    transform:
+        translateX(4px);
+}
+
+
+/* HEADING */
+
+.info-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 7px;
+
+    font-size: .72rem;
+
+    letter-spacing: .18em;
+
+    font-weight: 700;
+
+    color:
+        rgba(235,240,250,.75);
+}
+
+.info-icon {
+
+    font-size: 1.25rem;
+
+    display: inline-block;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,210,100,.4)
+        );
+
+    animation:
+        iconShine 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes iconShine {
+
+    from {
+        filter:
+            drop-shadow(
+                0 0 2px
+                rgba(255,210,100,.25)
+            );
+    }
+
+    to {
+        filter:
+            drop-shadow(
+                0 0 8px
+                rgba(255,215,110,.75)
+            );
+    }
+}
+
+
+/* DESCRIPTION */
+
+.info-block p {
+
+    color:
+        rgba(225,232,245,.82);
+
+    font-size:
+        clamp(.88rem, 2vw, 1rem);
+
+    line-height: 1.6;
+}
+
+
+/* LAUGH EMOJI */
+
+.laugh {
+
+    display: inline-block;
+
+    font-size: 1.05em;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(255,220,100,.35)
+        );
+}
+
+
+/* CHAI */
+
+.chai-word {
+
+    margin-top: 3px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(1.5rem, 4vw, 2rem) !important;
+
+    font-weight: 700;
+
+    letter-spacing: .25em;
+
+    color: #f2d28b !important;
+
+    text-shadow:
+        0 0 8px rgba(245,205,115,.35),
+        0 0 22px rgba(245,190,80,.15);
+}
+
+.chai-subtext {
+
+    margin-top: 1px;
+
+    color:
+        rgba(225,232,245,.62) !important;
+
+    font-size: .84rem !important;
+}
+
+
+/* =========================================
+   BOTTOM DECORATION
+========================================= */
+
+.bottom-sparkles {
+
+    margin-top: 35px;
+
+    color:
+        rgba(240,205,130,.45);
+
+    font-size: .8rem;
+
+    letter-spacing: .1em;
+
+    animation:
+        bottomShine 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes bottomShine {
+
+    from {
+        opacity: .35;
+    }
+
+    to {
+        opacity: .85;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .moon {
+
+        width: 70px;
+        height: 70px;
+
+        right: 7%;
+        top: 6%;
+    }
+
+    .moon::after {
+
+        width: 70px;
+        height: 70px;
+
+        left: 20px;
+    }
+
+    .pitashree-page {
+
+        padding:
+            80px 20px 45px;
+    }
+
+    .page-heading {
+
+        margin-bottom: 18px;
+    }
+
+    .page-heading h1 {
+
+        font-size:
+            clamp(2rem, 10vw, 3rem);
+
+        letter-spacing: .05em;
+    }
+
+    .profile-area {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        width: min(500px, 94vw);
+    }
+
+    .character-side {
+
+        min-height: 330px;
+
+        order: 1;
+    }
+
+    .father-character {
+
+        width: min(280px, 72vw);
+
+        max-height: 370px;
+    }
+
+    .character-glow {
+
+        width: 230px;
+        height: 230px;
+    }
+
+    .information-side {
+
+        order: 2;
+
+        gap: 18px;
+    }
+
+    .name-block {
+
+        text-align: center;
+    }
+
+    .name-block h2 {
+
+        font-size:
+            clamp(1.15rem, 5vw, 1.6rem);
+
+        letter-spacing: .05em;
+    }
+
+    .name-line {
+
+        margin:
+            11px auto 0;
+    }
+
+    .dob-label {
+
+        margin-top: 18px;
+    }
+
+    .info-block {
+
+        padding: 13px 14px;
+    }
+
+    .bottom-sparkles {
+
+        margin-top: 20px;
+    }
+}
