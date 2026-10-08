@@ -14,89 +14,131 @@ body {
     min-height: 100vh;
     overflow: hidden;
 
+    position: relative;
+
     background:
         radial-gradient(
-            circle at 50% 45%,
-            #151d3d 0%,
-            #0c1128 38%,
-            #080b1a 72%,
-            #050711 100%
+            circle at 50% 38%,
+            #17255d 0%,
+            #101a46 35%,
+            #080e2a 70%,
+            #05091d 100%
         );
 
-    color: #f8f5ed;
+    color: #ffffff;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
-
-    position: relative;
 }
 
 
-/* ---------- STAR FIELD ---------- */
+/* =========================================
+   STAR FIELD
+========================================= */
 
 .stars,
 .stars::before,
 .stars::after {
     position: absolute;
     inset: 0;
+
     content: "";
+
     pointer-events: none;
 }
 
+
+/* Main stars */
+
 .stars {
     background-image:
-        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(245,220,170,0.7) 1px, transparent 1.5px);
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.95) 1.5px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.65) 1px,
+            transparent 1.8px
+        ),
+        radial-gradient(
+            circle,
+            rgba(210,220,255,0.7) 1.2px,
+            transparent 2px
+        );
 
     background-size:
-        130px 150px,
-        210px 190px,
-        280px 260px;
+        155px 170px,
+        230px 210px,
+        310px 280px;
 
     background-position:
-        20px 30px,
-        80px 100px,
-        150px 40px;
+        20px 15px,
+        80px 90px,
+        140px 40px;
 
-    opacity: 0.55;
+    opacity: 0.75;
 
-    animation: starsMove 18s linear infinite;
+    animation: starDrift 18s ease-in-out infinite;
 }
 
+
+/* Extra glowing stars */
+
 .stars::before {
+
     background:
         radial-gradient(
-            circle at 25% 30%,
-            rgba(255,255,255,0.9) 0 1px,
-            transparent 2px
+            circle at 14% 20%,
+            rgba(255,255,255,0.95) 0 2px,
+            transparent 3px
         ),
         radial-gradient(
-            circle at 75% 20%,
-            rgba(255,225,170,0.9) 0 1px,
-            transparent 2px
+            circle at 82% 17%,
+            rgba(255,255,255,0.95) 0 2px,
+            transparent 3px
         ),
         radial-gradient(
-            circle at 65% 75%,
-            rgba(255,255,255,0.8) 0 1px,
-            transparent 2px
+            circle at 72% 72%,
+            rgba(255,255,255,0.9) 0 2px,
+            transparent 3px
+        ),
+        radial-gradient(
+            circle at 25% 82%,
+            rgba(255,255,255,0.8) 0 2px,
+            transparent 3px
         );
 
     animation: twinkle 3s ease-in-out infinite alternate;
 }
 
+
+/* Tiny glitter */
+
 .stars::after {
+
     background:
         radial-gradient(
-            circle at 15% 75%,
+            circle at 35% 28%,
             rgba(255,255,255,0.7) 0 1px,
             transparent 2px
         ),
         radial-gradient(
-            circle at 88% 60%,
-            rgba(245,220,170,0.8) 0 1px,
+            circle at 90% 48%,
+            rgba(255,255,255,0.8) 0 1px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle at 8% 58%,
+            rgba(255,255,255,0.6) 0 1px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle at 52% 90%,
+            rgba(255,255,255,0.7) 0 1px,
             transparent 2px
         );
 
@@ -104,322 +146,709 @@ body {
 }
 
 
-/* ---------- SOFT GALAXY GLOW ---------- */
+/* =========================================
+   MOON
+========================================= */
 
-body::before {
-    content: "";
+.moon {
+
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 135px;
+    height: 135px;
 
-    left: 50%;
-    top: 50%;
+    top: 105px;
+    right: 11%;
 
-    transform: translate(-50%, -50%);
+    border-radius: 50%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(64, 83, 160, 0.20),
-            transparent 68%
-        );
+        #fff7d9;
 
-    filter: blur(20px);
+    box-shadow:
+        0 0 18px rgba(255,247,217,0.65),
+        0 0 45px rgba(255,247,217,0.25);
 
-    pointer-events: none;
+    z-index: 1;
+
+    overflow: hidden;
 }
 
 
-/* ---------- WELCOME CARD ---------- */
+/* Moon shadow creates crescent */
+
+.moon-shadow {
+
+    position: absolute;
+
+    width: 135px;
+    height: 135px;
+
+    top: -10px;
+    left: 42px;
+
+    border-radius: 50%;
+
+    background:
+        #070d22;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
 
 .welcome-card {
+
     position: relative;
+
     z-index: 5;
 
-    width: min(90%, 620px);
+    width: min(88%, 635px);
 
-    min-height: 100vh;
+    min-height: 700px;
 
-    margin: auto;
+    margin: 0 auto;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 48px;
+
+    border:
+        1px solid rgba(160,175,235,0.28);
+
+    background:
+        rgba(9, 17, 53, 0.78);
+
+    box-shadow:
+        0 0 45px rgba(20,40,110,0.25),
+        inset 0 0 50px rgba(30,55,130,0.10);
+
+    backdrop-filter: blur(5px);
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
-    padding: 35px 25px;
+    padding:
+        50px 35px;
 
-    animation: cardAppear 2s ease forwards;
+    animation: cardAppear 1.5s ease forwards;
 }
 
 
-/* ---------- TEXT ---------- */
+/* =========================================
+   BIRTHDAY EMOJI
+========================================= */
 
-.tiny-text {
-    font-family: Arial, sans-serif;
+.birthday-emoji {
 
-    font-size: 10px;
-    letter-spacing: 4px;
+    font-family:
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        sans-serif;
 
-    color: rgba(248,245,237,0.55);
+    font-size: 92px;
 
-    margin-bottom: 22px;
+    line-height: 1;
+
+    margin-bottom: 30px;
+
+    filter:
+        drop-shadow(0 0 12px rgba(255,215,100,0.45));
+
+    animation:
+        cakeAppear 1.2s ease forwards,
+        cakeGlow 2.5s ease-in-out infinite 1.2s;
 }
+
+
+/* =========================================
+   HEADING
+========================================= */
 
 h1 {
-    font-size: clamp(38px, 10vw, 70px);
 
-    line-height: 1.05;
+    display: flex;
 
-    font-weight: 400;
+    flex-direction: column;
 
-    letter-spacing: 2px;
+    align-items: center;
 
-    text-shadow:
-        0 0 25px rgba(255,255,255,0.12);
-}
+    line-height: 1;
 
-h1 span {
-    color: #f3dfb0;
+    margin: 0;
 
     text-shadow:
-        0 0 25px rgba(243,223,176,0.25);
+        0 0 18px rgba(255,255,255,0.25),
+        0 0 35px rgba(130,150,255,0.20);
+
+    animation: headingAppear 1.3s ease forwards;
 }
 
 
-/* ---------- DIVIDER ---------- */
+/* WELCOME */
 
-.divider {
-    width: 55px;
-    height: 1px;
+.welcome-word {
 
-    background: #d9bd7b;
+    font-size:
+        clamp(48px, 13vw, 78px);
 
-    margin: 30px auto;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #ffffff;
 }
 
 
-/* ---------- MESSAGE ---------- */
+/* PITASHREE */
 
-.warning-text {
-    max-width: 430px;
+.pitashree-word {
 
-    font-family: Arial, sans-serif;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
-    color: rgba(248,245,237,0.78);
-}
-
-.danger-text {
-    margin-top: 25px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    color: #f3dfb0;
-}
-
-.risk-text {
     margin-top: 8px;
 
-    font-family: Arial, sans-serif;
+    font-size:
+        clamp(34px, 9vw, 55px);
 
-    font-size: 12px;
+    font-weight: 700;
 
-    color: rgba(248,245,237,0.5);
+    letter-spacing: 4px;
 
-    letter-spacing: 1px;
+    color: #e8e9ff;
+
+    text-shadow:
+        0 0 18px rgba(150,165,255,0.45);
 }
 
 
-/* ---------- BUTTON ---------- */
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+
+    width: 65px;
+
+    height: 1px;
+
+    margin:
+        32px 0 28px;
+
+    background:
+        #cdd5ff;
+
+    box-shadow:
+        0 0 10px rgba(205,213,255,0.65);
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    max-width: 500px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(16px, 4vw, 20px);
+
+    line-height: 1.65;
+
+    color:
+        rgba(245,247,255,0.86);
+
+    animation:
+        messageAppear 1.4s ease forwards;
+}
+
+
+.skip-warning {
+
+    margin-top: 26px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(18px, 4.5vw, 24px);
+
+    color: #ffffff;
+
+    animation:
+        messageAppear 1.5s ease forwards;
+}
+
+
+.risk-warning {
+
+    margin-top: 8px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        14px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(215,221,255,0.65);
+
+    animation:
+        messageAppear 1.6s ease forwards;
+}
+
+
+/* =========================================
+   ENTER BUTTON
+========================================= */
 
 #enterButton {
-    margin-top: 35px;
 
-    padding: 15px 25px;
+    position: relative;
 
-    border: 1px solid rgba(243,223,176,0.55);
+    margin-top: 38px;
+
+    padding:
+        18px 30px;
+
+    min-width: 270px;
 
     border-radius: 50px;
 
+    border:
+        1px solid rgba(205,213,255,0.60);
+
     background:
-        rgba(10, 15, 35, 0.7);
+        rgba(35,48,105,0.48);
 
-    color: #f8f5ed;
+    color:
+        #ffffff;
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
-    font-size: 11px;
+    font-size:
+        14px;
 
-    letter-spacing: 2px;
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.8px;
 
     cursor: pointer;
 
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-#enterButton span {
-    margin-left: 10px;
-
-    color: #f3dfb0;
-}
-
-#enterButton:hover {
-    transform: translateY(-3px);
-
-    background:
-        rgba(243,223,176,0.10);
+    overflow: hidden;
 
     box-shadow:
-        0 0 25px rgba(243,223,176,0.15);
+        0 0 18px rgba(145,160,255,0.20);
+
+    animation:
+        buttonAppear 1.8s ease forwards,
+        buttonTwinkle 2.7s ease-in-out infinite 2s;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
 }
 
 
-/* ---------- DECORATIVE STARS ---------- */
+#enterButton::after {
 
-.small-star {
+    content: "";
+
     position: absolute;
 
-    color: #f3dfb0;
+    top: 0;
+    left: -80%;
 
-    opacity: 0;
+    width: 45%;
+    height: 100%;
 
-    animation: decorativeTwinkle 3s ease-in-out infinite;
+    background:
+        linear-gradient(
+            100deg,
+            transparent,
+            rgba(255,255,255,0.45),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        buttonShine 3.5s ease-in-out infinite;
 }
 
-.star-one {
-    top: 27%;
-    left: 12%;
+
+#enterButton span {
+
+    margin-left: 8px;
+
+    color:
+        #dfe4ff;
 
     font-size: 18px;
 }
 
-.star-two {
-    top: 20%;
-    right: 15%;
 
-    font-size: 13px;
+#enterButton:active {
 
-    animation-delay: 1s;
+    transform:
+        scale(0.96);
 }
 
-.star-three {
+
+/* =========================================
+   DECORATIVE SPARKLES
+========================================= */
+
+.sparkle {
+
+    position: absolute;
+
+    z-index: 3;
+
+    color:
+        #ffffff;
+
+    font-size:
+        20px;
+
+    opacity:
+        0;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,0.9);
+
+    animation:
+        sparkleTwinkle 3s ease-in-out infinite;
+}
+
+
+.sparkle-1 {
+
+    top: 25%;
+    left: 9%;
+
+    animation-delay:
+        0.5s;
+}
+
+
+.sparkle-2 {
+
+    top: 31%;
+    right: 8%;
+
+    font-size: 14px;
+
+    animation-delay:
+        1.3s;
+}
+
+
+.sparkle-3 {
+
+    bottom: 18%;
+    left: 14%;
+
+    font-size: 15px;
+
+    animation-delay:
+        2s;
+}
+
+
+.sparkle-4 {
+
     bottom: 25%;
-    right: 12%;
+    right: 13%;
 
-    font-size: 20px;
+    font-size: 21px;
 
-    animation-delay: 2s;
+    animation-delay:
+        2.5s;
 }
 
 
-/* ---------- ANIMATIONS ---------- */
-
-@keyframes starsMove {
-
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes twinkle {
-
-    0% {
-        opacity: 0.25;
-    }
-
-    50% {
-        opacity: 0.8;
-    }
-
-    100% {
-        opacity: 0.3;
-    }
-}
-
-@keyframes decorativeTwinkle {
-
-    0% {
-        opacity: 0;
-        transform: scale(0.6);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0.6);
-    }
-}
+/* =========================================
+   ANIMATIONS
+========================================= */
 
 @keyframes cardAppear {
 
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform:
+            translateY(-50%)
+            scale(0.96);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(-50%)
+            scale(1);
     }
 }
 
 
-/* ---------- PHONE ---------- */
+@keyframes cakeAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes cakeGlow {
+
+    0%,
+    100% {
+        filter:
+            drop-shadow(
+                0 0 10px
+                rgba(255,215,100,0.30)
+            );
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 0 24px
+                rgba(255,215,100,0.65)
+            );
+    }
+}
+
+
+@keyframes headingAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* Button gentle glow */
+
+@keyframes buttonTwinkle {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 16px rgba(145,160,255,0.18);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(175,190,255,0.48);
+    }
+}
+
+
+/* Moving shine across button */
+
+@keyframes buttonShine {
+
+    0% {
+        left: -80%;
+    }
+
+    55% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+
+/* Stars */
+
+@keyframes starDrift {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+}
+
+
+@keyframes twinkle {
+
+    0% {
+        opacity:
+            0.35;
+    }
+
+    50% {
+        opacity:
+            0.95;
+    }
+
+    100% {
+        opacity:
+            0.45;
+    }
+}
+
+
+@keyframes sparkleTwinkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform:
+            scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            scale(1.25);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 600px) {
 
-    .tiny-text {
-        font-size: 8px;
-        letter-spacing: 3px;
+    .welcome-card {
+
+        width: 88%;
+
+        min-height: 680px;
+
+        padding:
+            40px 22px;
+
+        border-radius:
+            42px;
     }
 
-    h1 {
-        font-size: 42px;
+
+    .birthday-emoji {
+
+        font-size: 82px;
+
+        margin-bottom: 27px;
     }
 
-    .warning-text {
-        font-size: 14px;
-        max-width: 320px;
-    }
 
-    .star-one {
-        left: 8%;
-    }
+    .moon {
 
-    .star-two {
-        right: 8%;
-    }
+        width: 125px;
+        height: 125px;
 
-    .star-three {
+        top: 105px;
+
         right: 7%;
+    }
+
+
+    .moon-shadow {
+
+        width: 125px;
+        height: 125px;
+
+        left: 39px;
+    }
+
+
+    .message {
+
+        max-width: 330px;
+
+        font-size: 16px;
+    }
+
+
+    #enterButton {
+
+        min-width: 250px;
+
+        padding:
+            17px 22px;
+
+        font-size: 12px;
     }
 }
