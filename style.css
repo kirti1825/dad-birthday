@@ -454,3 +454,31 @@ body {
         margin-top: 27px;
     }
 }
+
+
+/* =====================================================
+   PHONE SCREEN FIX
+   ===================================================== */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+}
+
+/* Keep the moon fixed to the phone screen */
+.moon {
+    position: fixed !important;
+}
+
+/* Prevent anything from creating sideways movement */
+.opening-screen {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
