@@ -1,136 +1,129 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const father = document.querySelector(".father-walker");
+    const gate =
+        document.querySelector(".gate");
 
-    const leftDoor = document.querySelector(".left-door");
-    const rightDoor = document.querySelector(".right-door");
+    const leftDoor =
+        document.querySelector(".left-door");
 
-    const insideLight = document.querySelector(".inside-light");
+    const rightDoor =
+        document.querySelector(".right-door");
 
-    const knockEffect =
-        document.querySelector(".knock-effect");
-
-    const finalLight =
-        document.querySelector(".final-light");
+    const knock =
+        document.querySelector(".knock");
 
 
     /*
-       The father reaches the gate.
-       Then comes the cute knock-knock moment.
+        PAPA REACHES THE GATE
     */
 
     setTimeout(() => {
 
-        if (father) {
-            father.classList.add("ready-to-knock");
-        }
+        if (!gate) return;
 
-        if (knockEffect) {
+        /* Cute little knock-knock */
 
-            knockEffect.style.opacity = "1";
+        gate.classList.add("shake");
+
+        if (knock) {
+
+            knock.style.opacity = "1";
 
             const sparks =
-                knockEffect.querySelectorAll("span");
+                knock.querySelectorAll("span");
 
-            sparks.forEach((spark) => {
+            sparks.forEach((spark, index) => {
 
-                spark.style.animation =
-                    "knockSpark .8s ease forwards";
+                setTimeout(() => {
+
+                    spark.animate(
+                        [
+                            {
+                                opacity: 0,
+                                transform: "scale(.5) translateY(5px)"
+                            },
+
+                            {
+                                opacity: 1,
+                                transform: "scale(1.1) translateY(0)"
+                            },
+
+                            {
+                                opacity: 0,
+                                transform: "scale(1.5) translateY(-12px)"
+                            }
+                        ],
+                        {
+                            duration: 700,
+                            easing: "ease-out"
+                        }
+                    );
+
+                }, index * 130);
 
             });
-
         }
 
-    }, 9800);
+    }, 11200);
 
 
     /*
-       Gate opens after the knock.
+        GATE OPENS
+        No golden light.
+        Just the wooden doors opening.
     */
 
     setTimeout(() => {
 
         if (leftDoor) {
+
             leftDoor.style.transform =
                 "perspective(600px) rotateY(-82deg)";
+
         }
 
         if (rightDoor) {
+
             rightDoor.style.transform =
                 "perspective(600px) rotateY(82deg)";
-        }
-
-        if (insideLight) {
-
-            insideLight.style.opacity = "1";
-
-            insideLight.style.transform =
-                "scale(1.15)";
 
         }
 
-    }, 10800);
+    }, 11900);
 
 
     /*
-       After the gate opens,
-       father walks through the light.
+        PAPA WALKS THROUGH
     */
 
     setTimeout(() => {
 
-        if (father) {
+        const father =
+            document.querySelector(".father-walker");
 
-            father.style.transition =
-                "left 3.5s ease, transform 3.5s ease";
+        if (!father) return;
 
-            father.style.left =
-                "calc(50% - 70px)";
+        father.style.transition =
+            "left 2.8s ease, opacity 2.8s ease";
 
-            father.style.transform =
-                "scale(.82)";
+        father.style.left =
+            "calc(50% + 20px)";
 
-        }
+        father.style.opacity = "1";
 
-    }, 12500);
+    }, 13000);
 
 
     /*
-       Final magical light transition.
+        NEXT SCENE
+        We'll connect this to the birthday
+        party page after we finish it.
     */
 
     setTimeout(() => {
 
-        if (finalLight) {
+        window.location.href = "page4.html";
 
-            finalLight.animate(
-                [
-                    {
-                        opacity: 0
-                    },
-                    {
-                        opacity: .35
-                    },
-                    {
-                        opacity: 1
-                    }
-                ],
-                {
-                    duration: 2200,
-                    easing: "ease-in-out",
-                    fill: "forwards"
-                }
-            );
-
-        }
-
-    }, 15000);
-
-
-    /*
-       Then Part 4 can begin.
-       We are NOT linking it yet.
-       We'll add your next scene when you design it.
-    */
+    }, 16500);
 
 });
