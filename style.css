@@ -258,11 +258,11 @@ body {
     align-items: center;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(24, 45, 88, 0.72),
-            rgba(8, 19, 42, 0.78)
-        );
+    linear-gradient(
+        145deg,
+        rgba(10, 24, 52, 0.88),
+        rgba(4, 12, 28, 0.92)
+    );
 
     border: 1px solid rgba(145, 178, 235, 0.22);
     border-radius: 22px;
